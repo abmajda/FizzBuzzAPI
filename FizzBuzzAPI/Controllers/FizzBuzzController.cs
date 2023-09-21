@@ -38,14 +38,22 @@ namespace FizzBuzzAPI.Controllers
             if (processedRequest.Errors.Count > 0)
             {
                 var errors = processedRequest.Errors;
+                var result = new ErrorResult(errors);
+
                 // log the errors
-                return BadRequest(new ErrorResult(errors));
+                Log.Information("V1/FizzBuzz POST response with parameters: {@result}", result);
+
+                return BadRequest(result);
             }
 
             // Solve fizzbuzz
             try
             {
                 var result = _fizzBuzzService.SolveFizzBuzz(fizzBuzzInputs);
+
+                // log the output
+                Log.Information("V1/FizzBuzz POST called with parameters: {@result}", result);
+
                 return Ok(result);
             } 
             catch (Exception ex)
