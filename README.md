@@ -9,3 +9,5 @@ It is designed to take in a request to modularize FizzBuzz if needed and this is
 Tests are provided utilizing xUnit to handle testing. I didn't go too hog wild on the tests as this is at its core a very simple API but there should be enough to ensure proper working order.
 
 Comments were provided where I felt context was needed. There is not comments for every function as I felt that could get excessive but I placed them where appropriate to give context.
+
+This is a v1 API and as such our contracts are stored in a separate project to ensure we are always designing against the same inputs. Tests are likewise in a separate project although that is more just to avoid cluttering up the main project so the file structure is more readable.
